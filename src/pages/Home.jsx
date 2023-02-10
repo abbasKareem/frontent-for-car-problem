@@ -1,3 +1,4 @@
+import { Avatar } from "@material-tailwind/react"
 import React, { useState } from "react"
 import Post from "../components/Post"
 
@@ -6,10 +7,11 @@ const Home = () => {
   const items = [{ title: "Ui Design" }, { title: "UX Design" }, { title: "Visual Design" }, { title: "Engines" }, { title: "Head Lights" }, { title: "Back Lights" }, { title: "Breaks" }, { title: "ABs System" }]
   return (
     <>
-      <div className="h-screen bg-[#000000] overflow-x-hidden text-gray-100 px-4">
+      <div className="h-screen bg-[#000000] overflow-x-hidden text-gray-100 px-4 relative">
         {/* the image and the notfication icon */}
         <div className="flex items-center justify-between mt-4">
-          <img className="object-cover rounded-full h-14 w-14" src="/person.jpg" alt="persion" />
+          {/* <img className="object-cover rounded-full h-14 w-14" src="/person.jpg" alt="persion" /> */}
+          <Avatar src="/person.jpg" variant="circular" />
           <button>
             <div className="p-2 border border-gray-600 rounded-full">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -48,7 +50,7 @@ const Home = () => {
           <Post />
         </div>
         {/* Trending Now */}
-        <div className="bg-[#252218] p-4 text-white mb-12">
+        <div className="bg-[#252218] p-4 text-white mb-20">
           <h1 className="mb-8 text-xl font-semibold tracking-wider">TRENDING NOW</h1>
           <div className="mx-2 mb-10">
             <div>
@@ -84,30 +86,31 @@ const Home = () => {
           </div>
         </div>
         {/* Bottom navgation */}
-        <div className="sticky bottom-0 px-4 py-6 overflow-hidden bg-black">
-          {/* <div className="sticky bottom-0 px-4 py-6 overflow-hidden bg-gray-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-70 "> */}
-          <div className="flex items-center justify-between gap-10">
-            <div className="bg-black ">
+      </div>
+      <div className="fixed bottom-0 z-30 w-full py-6 mt-10 overflow-hidden text-gray-300 bg-black">
+        <div className="container mx-auto">
+          <ul className="flex items-center justify-between gap-10">
+            <li className="">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-7 h-7">
                 <path fillRule="evenodd" d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z" clipRule="evenodd" />
               </svg>
-            </div>
-            <div>
+            </li>
+            <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
               </svg>
-            </div>
-            <div className="p-2 bg-blue-600 rounded-full ">
+            </li>
+            <li className="p-2 bg-blue-600 rounded-full ">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
-            </div>
-            <div>
+            </li>
+            <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
               </svg>
-            </div>
-            <div>
+            </li>
+            <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
                 <path
                   strokeLinecap="round"
@@ -116,8 +119,8 @@ const Home = () => {
                 />
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
       </div>
     </>
