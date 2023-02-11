@@ -1,0 +1,39 @@
+import React, { useState } from "react"
+import { Link, NavLink, useLocation } from "react-router-dom"
+
+const Navgator2 = () => {
+  const location = useLocation()
+  const pathName = location.pathname.split("/")
+
+  const Menus = [
+    { name: "Home", icon: "home-outline", dis: " translate-x-[-0.5rem]", link: "/" },
+    { name: "Search", icon: "search-outline", dis: "translate-x-[6rem]", link: "/search" },
+    { name: "Category", icon: "layers-outline", dis: "translate-x-[12.9rem]", link: "/alltyps" },
+    // { name: pathName[1], icon: "add-outline", link: "/addpost" },
+    { name: "Profile", icon: "person-outline", dis: "translate-x-[19.5rem]", link: "/profile" },
+  ]
+
+  const [myactive, setActive] = useState(0)
+
+  return (
+    <div className="fixed bottom-0 z-30 w-full px-4 py-2 mt-10 overflow-hidden text-gray-300 bg-black">
+      <div className="container mx-auto">
+        <ul className="relative flex items-center justify-between gap-10">
+          {/* <span className={`bg-red-600 border-4 border-black h-14 w-14  ${Menus[myactive].dis}  duration-700 absolute -top-4 rounded-full`}></span> */}
+          {Menus.map((menu, i) => (
+            <li key={i} className="w-10">
+              <NavLink to={menu.link} className={`flex flex-col text-center items-center pt-6  ${i === myactive && " duration-500"}`} onClick={() => setActive(i)}>
+                <span className={`text-xl cursor-pointer  duration-700 ${i === myactive && "-mt-10 text-white"}`}>
+                  <ion-icon name={menu.icon}></ion-icon>
+                </span>
+                <span className={`text-white text-center ${myactive === i ? "translate-y-4 duration-400 opacity-100 text-yellow-700" : "opacity-50 translate-y-10"}`}>{menu.name}</span>
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  )
+}
+
+export default Navgator2
