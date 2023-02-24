@@ -11,9 +11,8 @@ module.exports = withMT({
       xl: "1440px",
     },
     extend: {
-      boxShadow: {
-        myShadowL: "4.1px -5px 0 0 white",
-        myShadowR: "-4.1px -5px 0 0 white",
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
       },
     },
   },

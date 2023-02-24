@@ -1,6 +1,5 @@
 import { Avatar } from "@material-tailwind/react"
 import React, { useState } from "react"
-import BottomNavgations from "../components/BottomNavgations"
 import Post from "../components/Post"
 
 const Home = () => {

@@ -11,13 +11,14 @@ import ProfilePage from "./pages/ProfilePage"
 // Layouts
 import RootLayout from "./layouts/RootLayout"
 import SinglePage from "./pages/SinglePage"
+import AllCarpage from "./pages/AllCarpage"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
       <Route path="search" element={<SearchPage />} />
-      <Route path="alltyps" element={<CarsTypesPage />} />
+      <Route path="all-cars" element={<AllCarpage />} />
       <Route path="addpost" element={<AddPostPage />} />
       <Route path="profile" element={<ProfilePage />} />
       <Route path="singlecar" element={<SinglePage />} />
