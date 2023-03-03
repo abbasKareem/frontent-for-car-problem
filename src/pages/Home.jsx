@@ -1,17 +1,41 @@
 import { Avatar } from "@material-tailwind/react"
 import React, { useState } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { Link, useNavigate } from "react-router-dom"
 import Post from "../components/Post"
+import { CiLogout } from "react-icons/ci"
+import { logout, reset } from "../redux/features/auth/authSlice"
+import { reset_tokens } from "../redux/features/me/meSlice"
 
 const Home = () => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const { tokens } = useSelector((state) => state.user_info)
   const [active, setActive] = useState(0)
   const items = [{ title: "Ui Design" }, { title: "UX Design" }, { title: "Visual Design System on pc" }, { title: "Engines" }, { title: "Head Lights" }, { title: "Back Lights" }, { title: "Breaks" }, { title: "ABs System" }]
+
+  const onLogout = () => {
+    dispatch(logout())
+    dispatch(reset())
+    dispatch(reset_tokens())
+    navigate("/")
+  }
   return (
     <>
       <div className="relative px-4 ">
         {/* the image and the notfication icon */}
         <div className="flex items-center justify-between mt-4">
           {/* <img className="object-cover rounded-full h-14 w-14" src="/person.jpg" alt="persion" /> */}
-          <Avatar src="/person.jpg" variant="circular" />
+          <p>
+            {tokens ? (
+              <div onClick={onLogout} className="flex items-center justify-center gap-1">
+                <CiLogout />
+              </div>
+            ) : (
+              <Link to="/login">Login</Link>
+            )}
+          </p>
           <button>
             <div className="p-2 border border-gray-600 rounded-full">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
